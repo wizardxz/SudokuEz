@@ -58,6 +58,20 @@ const char* keys =
     "{     p|  pictures|     train_data| picture directory}"
 };
 
+void help()
+{
+    cout << "This program is a sudoku game solver using camera-captured image or static image file.\n"
+    << "1. Recognition with camera\n"
+    << "./sudoku -c\n"
+    << "2.Recognition with static image file\n"
+    << "./sudoku -f news.jpg\n"
+    << "3.Collecting images\n"
+    << "./sudoku -m col -f news.jpg -p train_data\n"
+    << "After executing this command, you will see lots of unclassified images in the directory of train_data/unclassified/. You must move these images into corresponding directories in train_data/\n"
+    << "4.Train based on your collected images\n"
+    << "./sudoku -m tra -s train_data/svm\n";
+}
+
 bool get_solution(Mat cropped_imgs[], CvSVM& svm, int data[], int result[])
 {
     //recognize numbers
@@ -306,7 +320,10 @@ void train(string svm_filename, string pictures_directory)
 
 int main( int argc, const char** argv )
 {
+    help();
     CommandLineParser parser(argc, argv, keys);
+    cout << "Paramerers:\n";
+    parser.printParams();
 
     string mode = parser.get<string>("mode");
     bool use_camera = parser.get<bool>("camera");
