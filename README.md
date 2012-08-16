@@ -3,22 +3,22 @@ SudokuEz
 
 Sudoku game solver using camera-captured image or static image file.
 
-#.  Recognition with camera::
+1.  Recognition with camera
 
         ./sudoku -c
 
-#.  Recognition with static image file::
+2.  Recognition with static image file
 
         ./sudoku -f news.jpg
 
-#.  Collecting images::
+3.  Collecting images
 
         ./sudoku -m col -f news.jpg -p train_data
 
     After executing this command, you will see lots of unclassified images in
-    the directory of ``train_data/unclassified/``.  You must move these images
-    into corresponding directories in ``train_data/``
+    the directory of `train_data/unclassified/`.  You must move these images
+    into corresponding directories in `train_data/`
 
-#.  Train based on your collected images::
+4.  Train based on your collected images
 
         ./sudoku -m tra -s train_data/svn
