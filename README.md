@@ -21,4 +21,4 @@ Sudoku game solver using camera-captured image or static image file.
 
 4.  Train based on your collected images
 
-        ./sudoku -m tra -s train_data/svn
+        ./sudoku -m tra -s train_data/svm
